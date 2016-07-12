@@ -11,7 +11,7 @@ describe(Patient) do
   end
 
   describe('.all') do
-    it("is empty at first") do
+    it("an array that is empty at first") do
       expect(Patient.all()).to(eq([]))
     end
   end
