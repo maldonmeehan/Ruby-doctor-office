@@ -30,14 +30,10 @@ describe("add a new patient path", {:type => :feature}) do
     doctor.save()
     visit('/doctors')
     click_link('Dr. Smith')
-  end
-end
-
-#
-#     click_link('Add a Patient')
-#     fill_in('patient_name', :with => 'Andrea')
-#     fill_in('birthdate', :with => '1999-08-01')
-#     click_button('Submit')
-#     expect(page).to have_content('Your entry has been successfully created!')
-#   end
-# end
+    click_link('Add a Patient')
+    fill_in('patient_name', :with => 'Andrea')
+    fill_in('birthdate', :with => '1999-08-01')
+    click_button('Submit')
+    expect(page).to have_content('Your entry has been successfully created!')
+    end
+  end  
