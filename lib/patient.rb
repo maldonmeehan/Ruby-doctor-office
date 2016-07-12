@@ -11,4 +11,16 @@ class Patient
     self.name().==(another_patient.name()).&self.doctor_id().==(another_patient.doctor_id())
     .&self.birthdate().==(another_patient.birthdate())
   end
+
+  define_singleton_method(:all) do
+    returned_patients = DB.exec("SELECT * FROM patients;")
+    patients = []
+    returned_patients.each() do |patient|
+      name = patient.fetch("name")
+      birthdate = patient.fetch("birthdate")
+      doctor_id = patient.fetch("doctor_id")
+    patients.push(Patient.new({:name => name, :birthdate => birthdate, :doctor_id => doctor_id}))
+    end
+    patients
+  end
 end
