@@ -4,7 +4,7 @@ class Patient
   define_method(:initialize) do |attributes|
     @name = attributes.fetch(:name)
     @birthdate = attributes.fetch(:birthdate)
-    @doctor_id = attributes.fetch(:doctor_id)
+    @doctor_id = attributes.fetch(:doctor_id).to_i()
   end
 
   define_method(:==) do |another_patient|
@@ -23,4 +23,9 @@ class Patient
     end
     patients
   end
+
+  define_method(:save) do
+    DB.exec("INSERT INTO patients (name, birthdate, doctor_id) VALUES ('#{@name}', '#{@birthdate}', #{@doctor_id});")
+  end
+
 end

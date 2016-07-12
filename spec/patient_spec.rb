@@ -16,4 +16,11 @@ describe(Patient) do
     end
   end
 
+  describe("#save") do
+    it("adds a patient to the array of saved patients") do
+      test_patient = Patient.new({:name => "John", :birthdate => '2016-06-15 00:00:00', :doctor_id => 1})
+      test_patient.save()
+      expect(Patient.all()).to(eq([test_patient]))
+    end
+  end
 end
