@@ -7,7 +7,7 @@ DB= PG.connect({:dbname => "doctor_office_test"})
 
 RSpec.configure do |config|
   config.after(:each) do
-    DB.exec("DELETE FROM lists *;")
-    DB.exec("DELETE FROM tasks *;")
+    DB.exec("DELETE FROM doctors *;")
+    DB.exec("DELETE FROM patients *;")
   end
 end
