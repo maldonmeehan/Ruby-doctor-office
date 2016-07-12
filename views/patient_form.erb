@@ -1,0 +1,13 @@
+<h1>Add a patient:</h1>
+
+  <form action="/patients" method="post">
+    <div class="form-group">
+      <input id="doctor_id" name="doctor_id" type="hidden" value="<%=@doctor.id() %>">
+
+      <label for="patient_name">Enter patient's name:</label>
+      <input type="text" name="patient_name" id="patient_name" required>
+      <label for="birthdate">Enter the patient's birthdate:</label>
+      <input type="text" name="birthdate" id="birthdate" required>
+    </div>
+    <button type="submit" class="button btn" name="submit">Submit</button>
+  </form>
